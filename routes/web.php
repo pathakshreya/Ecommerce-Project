@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\CheckoutController;
 
 
 /*
@@ -27,6 +30,11 @@ Route::get('/category/{cate_slug}/{prod_slug}', [FrontendController::class, 'pro
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Route::get('/', [App])
+// Route::middleware(['auth', 'isAdmin'])->group(function(){
+//     Route::get('/', 'HomeController@index');
+// });
 
 
 
@@ -50,14 +58,37 @@ Route::get('edit-product/{id}','ProductController@edit');
 Route::put('update/{id}', 'ProductController@update');
 Route::get('destroy/{id}','ProductController@destroy');
 
+
+//View order
+Route::get('order', 'OrderController@index');
+Route::get('delete/{id}', 'OrderController@delete');
+
 //Cart
 Route::get('cart', [CartController::class, 'cart']);
 //Route::post('cart/{id}', [CartController::class, 'cart']);
 Route::post('addcart/{id}', [CartController::class, 'addcart']);
+Route::get('deletecart/{id}', [CartController::class, 'deleteCart']);
+Route::get('load-cart-data',[CartController::class, 'cartcount']);
+
+//Checkout
+Route::get('checkout', [CheckoutController::class, 'index']);
+Route::post('place-order', [CheckoutController::class, 'placeorder'])->name('place_order.store');
+
+//Wishist
+Route::get('wishlist', [WishlistController::class, 'wishlist'])->name('wishlist');;
+Route::post('addwishlist/{id}', [WishlistController::class, 'addwishlist']);
+Route::get('deletewishlist/{id}', [WishlistController::class, 'deletewishlist']);
+
+Route::get('load-wishlist-data', [WishlistController::class, 'wishlistcount']);
+
+//Route::get('add-to-wishlist', [WishlistController::class, 'add']);
+
+Route::get('view-order', [CheckoutController::class, 'vieworder']);
 
 
 
-//Frontend Category
+
+
 
 
 

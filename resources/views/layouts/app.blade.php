@@ -83,5 +83,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" defer></script>
+    <script src="{{ asset('frontend/js/custom.min.js') }}" defer></script>
 </body>
 </html>

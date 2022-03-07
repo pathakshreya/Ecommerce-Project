@@ -31,8 +31,14 @@ class Products extends Model implements HasMedia
     public function category(){
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
+    // public function addToCart(){
+    //     return $this->belongsTo(Addcart::class, 'category_id', 'id');
+    // }
     public function getCoverImageAttribute(){
         return $this->hasMedia('images') ? $this->getMedia('images')[0]->getFullUrl() : '';
+    }
+    public function addCart(){
+        return $this->belongsTo(Addcart::class);
     }
 }
     

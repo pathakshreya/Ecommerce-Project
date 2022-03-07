@@ -43,6 +43,13 @@
                             <p>Add Product</p>
                         </a>
                     </li>
+
+                    <li class="nav-item {{ Request::is('order') ? 'active':''}}">
+                        <a class="nav-link" href="{{url('order')}}">
+                            <i class="fa fa-list"></i>
+                            <p>View Order</p>
+                        </a>
+                    </li>
               
                         </a>
                     </li>

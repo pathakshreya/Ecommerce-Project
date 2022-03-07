@@ -1,5 +1,6 @@
 @extends('layouts.front')
 
+
 @section('title')
       Welcome to E-shop
 @endsection

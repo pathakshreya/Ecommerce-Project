@@ -36,11 +36,11 @@
                     @else
                     <label class="badge bg-danger">Out of stock</label>
                     @endif
+                    <br/>
                     <div class="row mt-2">
                         <div class="col-md-2">
                             <input type="hidden" value="{{ $products->id}}" class="prod_id">
-                            <label for="Quantity">Quantity</label>
-                           <input type="number" value="1" max="10" min="1" class="form-control" style="width:100px" name="quantity">
+
                            {{--AJAX Jquery --}}
                            {{--<div class="input-group text-center mb-3">
                                 <button class="input-group-text decrement-btn">-</button>
@@ -48,17 +48,31 @@
                                  <button class="input-group-text increment-btn">+</button>
                             </div>--}}
                         </div>
-
-                        <div class="col-md-10">
-                            <br/>
-                            <a href="#" class="btn btn-success me-3 float-start">Add to wishlist<i class="fa fa-heart"></i></a>
-                           {{--<a href="{{url('/cart')}}" class="btn btn-primary me-3 float-start">Add to cart<i class="fa fa-shopping-cart"></i></a>--}}
-
-                           <form method="POST" action="{{url('/addcart', $products->id)}}">
-                               @csrf
-                               @method('POST')
-                               <input class="btn btn-primary me-3 float-start" type="submit" value="Add to cart" >
+                        <div class="col-md-20">
+                            
+                            <form method="POST" action="{{url('/addcart', $products->id)}}">
+                                @csrf
+                                
+                                @method('POST')
+                                @if($products->quantity > 0)
+                                <input class="btn btn-primary me-3 float-start" type="submit" value="Add to cart" >
+                                @endif
+                                {{--<a href="{{url('/addwishlist')}}" class="btn btn-success me-3 float-start">Add to wishlist<i class="fa fa-heart"></i></a>--}}
+                                
+                                <label for="Quantity">Quantity</label>
+                                <input type="number" value="1" max="10" min="1" class="form-control" style="width:100px" name="quantity">
+                                <br/>
                            </form>
+                           <form method="POST" action="{{url('/addwishlist', $products->id)}}">
+                               @csrf 
+                               @method('POST')
+                               <input class="btn btn-success me-3 float-start" type="submit" value="Add to wishlist">
+                
+                           </form>
+
+                            <br/>
+                            {{--<a href="{{url('/cart')}}" class="btn btn-primary me-3 float-start">Add to cart<i class="fa fa-shopping-cart"></i></a>--}}
+                            
                            
                         </div>
                     </div>
