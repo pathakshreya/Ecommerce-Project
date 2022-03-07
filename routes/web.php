@@ -35,9 +35,36 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Route::middleware(['auth', 'isAdmin'])->group(function(){
 //     Route::get('/', 'HomeController@index');
 // });
+//User 
+// Route::midleware(['auth'])->group(function(){
+
+// });
+//Cart
+
+Route::get('cart', [CartController::class, 'cart']);
+//Route::post('cart/{id}', [CartController::class, 'cart']);
+Route::post('addcart/{id}', [CartController::class, 'addcart']);
+Route::get('deletecart/{id}', [CartController::class, 'deleteCart']);
+Route::get('load-cart-data',[CartController::class, 'cartcount']);
+
+//Checkout
+Route::get('checkout', [CheckoutController::class, 'index']);
+Route::post('place-order', [CheckoutController::class, 'placeorder'])->name('place_order.store');
+
+//Wishist
+Route::get('wishlist', [WishlistController::class, 'wishlist'])->name('wishlist');;
+Route::post('addwishlist/{id}', [WishlistController::class, 'addwishlist']);
+Route::get('deletewishlist/{id}', [WishlistController::class, 'deletewishlist']);
+
+Route::get('load-wishlist-data', [WishlistController::class, 'wishlistcount']);
+
+//Route::get('add-to-wishlist', [WishlistController::class, 'add']);
+
+Route::get('view-order', [CheckoutController::class, 'vieworder']);
 
 
 
+//Admin
 Route::middleware(['auth', 'isAdmin'])->group(function (){
     Route::get('/dashboard', 'Admin\FrontendController@index');
 
@@ -63,27 +90,8 @@ Route::get('destroy/{id}','ProductController@destroy');
 Route::get('order', 'OrderController@index');
 Route::get('delete/{id}', 'OrderController@delete');
 
-//Cart
-Route::get('cart', [CartController::class, 'cart']);
-//Route::post('cart/{id}', [CartController::class, 'cart']);
-Route::post('addcart/{id}', [CartController::class, 'addcart']);
-Route::get('deletecart/{id}', [CartController::class, 'deleteCart']);
-Route::get('load-cart-data',[CartController::class, 'cartcount']);
 
-//Checkout
-Route::get('checkout', [CheckoutController::class, 'index']);
-Route::post('place-order', [CheckoutController::class, 'placeorder'])->name('place_order.store');
 
-//Wishist
-Route::get('wishlist', [WishlistController::class, 'wishlist'])->name('wishlist');;
-Route::post('addwishlist/{id}', [WishlistController::class, 'addwishlist']);
-Route::get('deletewishlist/{id}', [WishlistController::class, 'deletewishlist']);
-
-Route::get('load-wishlist-data', [WishlistController::class, 'wishlistcount']);
-
-//Route::get('add-to-wishlist', [WishlistController::class, 'add']);
-
-Route::get('view-order', [CheckoutController::class, 'vieworder']);
 
 
 
