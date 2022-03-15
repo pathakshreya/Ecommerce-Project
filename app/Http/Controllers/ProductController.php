@@ -134,4 +134,5 @@ class ProductController extends Controller
         $products->delete();
         return redirect()->back()->with('status','Product has been deleted successfully.');
     }
+
 }

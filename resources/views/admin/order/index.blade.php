@@ -1,27 +1,28 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="card">
+<div class="container">
     <div class="card-header">
         <h2>Category List</h2>
         <hr>
     </div>
+<div class="row">
     <div class="card-body">
         <table class="table table-bordered table-striped table-sm">
-            <tr class="tr-sm">
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Address 1</th>
-                <th>Address 2</th>
-                <th>Pincode</th>
-                <th>City</th>
-                <th>State</th>
-                <th>Country</th>
-                <th>Tracking No</th>
-                <th class="col-sm-1">Delete</th>
-            </tr>
-        @foreach ($orders as $order)
+                    <tr class="tr-sm">
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address 1</th>
+                        <th>Address 2</th>
+                        <th>Pincode</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Country</th>
+                        <th>Tracking No</th>
+                        <th class="col-sm-1">Delete</th>
+                    </tr>
+                         @foreach ($orders as $order)
             <tr>
                 <td>{{$order->first_name}} {{$order->last_name}}</td>
                 <td>{{$order->email}}</td>
@@ -44,6 +45,7 @@
            @endforeach
         </table>
     </div>
+</div>
 </div>
 @endsection
 

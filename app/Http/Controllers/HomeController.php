@@ -5,6 +5,8 @@ use App\Models\Products;
 use App\Models\Category;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -29,5 +31,11 @@ class HomeController extends Controller
         // $trending_category = Category::all();
         return view('home');
         //return view('product.index', compact('featured_products', 'trending_category'));
+    }
+
+    public function logout(){
+        Session::flush();
+        Auth::logout();
+        return redirect('/');
     }
 }

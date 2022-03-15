@@ -39,6 +39,8 @@ class LoginController extends Controller
         }
     }
 
+
+ 
     /**
      * Create a new controller instance.
      *

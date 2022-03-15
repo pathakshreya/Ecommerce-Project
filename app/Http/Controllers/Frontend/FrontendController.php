@@ -22,8 +22,7 @@ class FrontendController extends Controller
        return view('frontend.category', compact('category'));
     }
 
-    public function viewcategory($slug, Request $request){
-        
+    public function viewcategory($slug, Request $request){    
         if(Category::where('slug', $slug)->exists())
         {
             $category = Category::where('slug', $slug)->first();
@@ -52,4 +51,24 @@ class FrontendController extends Controller
             }
 
         }
+        public function search(Request $request){
+            
+              // return $request->input();
+            //   $product = Products::all();
+            //   $category = Category::All();
+               $product = Products::
+               where('name', 'like', '%'. $request->input('search_product').'%')
+               ->get();
+
+               return view('frontend.search',['products'=>$product]);
+
+        }
+
+        public function searchproduct($slug)
+        {
+          $categories = Category::find($slug);
+         return view('frontend.products.view', compact('categories'));
+        }
+           
+
 }

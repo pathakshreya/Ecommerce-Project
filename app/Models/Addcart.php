@@ -12,7 +12,7 @@ class Addcart extends Model implements HasMedia
 {
     use HasFactory, HasMediaTrait;
     protected $table = "addcarts";
-    protected $fillable=['name','product_name','quantity','price','subtotal'];
+    protected $fillable=['user_id','name','product_name','quantity','price','subtotal'];
 
     
     public function getCoverImageAttribute(){

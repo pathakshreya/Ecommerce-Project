@@ -32,6 +32,7 @@ class CartController extends Controller
         $products=Products::find($id);
        $category=Category::find($id);
         $addcarts = new Addcart;
+        $addcarts->user_id = Auth::id();
         $addcarts->product_name = $products->name;
         $addcarts->quantity = $request->quantity;
         $addcarts->price = $products->selling_price;
@@ -56,4 +57,8 @@ class CartController extends Controller
         $cartcount = AddCart::count();
         return response()->json(['count'=> $cartcount]);
     }
+
+    
+
+    
 }
