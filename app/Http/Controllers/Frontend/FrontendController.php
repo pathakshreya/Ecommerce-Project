@@ -52,16 +52,11 @@ class FrontendController extends Controller
 
         }
         public function search(Request $request){
-            
-              // return $request->input();
-            //   $product = Products::all();
-            //   $category = Category::All();
                $product = Products::
                where('name', 'like', '%'. $request->input('search_product').'%')
                ->get();
 
                return view('frontend.search',['products'=>$product]);
-
         }
 
         public function searchproduct($slug)

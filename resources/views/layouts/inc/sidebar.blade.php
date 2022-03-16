@@ -39,7 +39,7 @@
 
                     <li class="nav-item {{ Request::is('add-product') ? 'active':''}}">
                         <a class="nav-link" href="{{url('add-product')}}">
-                            <i class="fa fa-book"></i>
+                            <i class="fa fa-product-hunt"></i>
                             <p>Add Product</p>
                         </a>
                     </li>
@@ -50,6 +50,21 @@
                             <p>View Order</p>
                         </a>
                     </li>
+
+                    <li class="nav-item {{Request::is('user') ? 'active':''}}">
+                        <a class="nav-link" href="{{url('user')}}">
+                            <i class="fa fa-user"></i>
+                            <p>View Users</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item {{Request::is('rating') ? 'active':''}}">
+                        <a class="nav-link" href="{{url('rating')}}">
+                            <i class="fa fa-star"></i>
+                            <p>View Ratings</p>
+                        </a>
+                    </li>
+
               
                         </a>
                     </li>

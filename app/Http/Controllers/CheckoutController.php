@@ -11,12 +11,12 @@ use Illuminate\Support\Facades\Auth;
 class CheckoutController extends Controller
 {
     public function index(){
+        $order = Order::all();
         $addcarts = Addcart::all();
         return view('frontend.checkout', compact('addcarts'));
     }
 
-    public function placeorder(Order $order ,Request $request){
-        //dd($request->all());
+    public function placeorder(Order $order ,OrderRequest $request){
         $order = new Order;
         $order_items = OrderItem::all();
         $order->first_name = $request->input('first_name');
@@ -30,7 +30,7 @@ class CheckoutController extends Controller
         $order->country = $request->country;
         $order->pincode = $request->pincode;
         $order->message = $request->message;
-        $order->tracking_no = 'pathak'.rand(1111,9999);
+        $order->tracking_no = 'order'.rand(1111,9999);
         $order->save();
         $cartitems = AddCart::get();
         return redirect()->back()->with('status', 'Your order has been placed successfully.');

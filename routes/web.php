@@ -10,6 +10,8 @@ use App\Http\Controllers\Frontend\RatingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\Admin\UserController;
+Use App\Http\Controllers\Admin\RateController;
 
 
 /*
@@ -76,6 +78,8 @@ Route::post('add-rating', [RatingController::class, 'addrating']);
 
 
 
+
+
 //----------------Admin
 Route::middleware(['auth', 'isAdmin'])->group(function (){
     Route::get('/dashboard', 'Admin\FrontendController@index');
@@ -102,6 +106,13 @@ Route::get('destroy/{id}','ProductController@destroy');
 Route::get('order', 'OrderController@index');
 Route::get('delete/{id}', 'OrderController@delete');
 
+//View User
+Route::get('user', [UserController::class, 'viewuser']);
+Route::get('detail/{id}', [UserController::class, 'viewdetail']);
+
+//View Rating
+Route::get('rating', [RateController::class, 'viewrating']);
+Route::get('deleterating/{id}',[RateController::class, 'delete']);
 
 
 

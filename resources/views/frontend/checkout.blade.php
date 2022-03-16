@@ -10,7 +10,7 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-7">   
-                
+              
             <form action="{{route('place_order.store')}}" method="POST" id="checkoutForm">
                 @csrf
                 <div class="card">
@@ -21,13 +21,18 @@
                             <div class="col-md-6">
                                 <label for="first_name">First Name</label>
                                 <input type="text" class="form-control" placeholder="Enter first name" name="first_name"></input>
+                                @error('first_name')
+                                    <div class="text text-danger">
+                                        {{$message}}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="col-md-6">
                                 <label for="last_name">Last Name</label>
                                 <input type="text" class="form-control" placeholder="Enter last name" name="last_name"></input>
                                 @error('last_name')
-                                <div class="text-center">
-                                    {{message}}
+                                <div class="text text-danger">
+                                    {{$message}}
                                 </div>
                                 @enderror
                             </div>
@@ -35,8 +40,8 @@
                                 <label for="email">Email</label>
                                 <input type="text" class="form-control" placeholder="Enter email" name="email"></input>
                                 @error('email')
-                                <div class="text-center">
-                                    {{message}}
+                                <div class="text text-danger">
+                                    {{$message}}
                                 </div>
                                 @enderror
                             </div>
@@ -44,8 +49,8 @@
                                 <label for="phone">Phone Number </label>
                                 <input type="text" class="form-control" placeholder="Enter phone number" name="phone"></input>
                                 @error('phone')
-                                <div class="text-center">
-                                    {{message}}
+                                <div class="text text-danger">
+                                    {{$message}}
                                 </div>
                                 @enderror
                             </div>
@@ -53,8 +58,8 @@
                                 <label for="address1">Address 1</label>
                                 <input type="text" class="form-control" placeholder="Enter first address" name="address1"></input>
                                 @error('address1')
-                                <div class="text-center">
-                                    {{message}}
+                                <div class="text text-danger">
+                                    {{$message}}
                                 </div>
                                 @enderror
                             </div>
@@ -62,8 +67,8 @@
                                 <label for="address2">Address 2</label>
                                 <input type="text" class="form-control" placeholder="Enter second address" name="address2"></input>
                                 @error('address2')
-                                <div class="text-center">
-                                    {{message}}
+                                <div class="text text-danger">
+                                    {{$message}}
                                 </div>
                                 @enderror
                             </div>
@@ -71,8 +76,8 @@
                                 <label for="city">City</label>
                                 <input type="text" class="form-control" placeholder="Enter city" name="city"></input>
                                 @error('city')
-                                <div class="text-center">
-                                    {{message}}
+                                <div class="text text-danger">
+                                    {{$message}}
                                 </div>
                                 @enderror
                             </div>
@@ -80,8 +85,8 @@
                                 <label for="state">State</label>
                                 <input type="text" class="form-control" placeholder="Enter state" name="state"></input>
                                 @error('state')
-                                <div class="text-center">
-                                    {{message}}
+                                <div class="text text-danger">
+                                    {{$message}}
                                 </div>
                                 @enderror
                             </div>
@@ -89,8 +94,8 @@
                                 <label for="country">Country</label>
                                 <input type="text" class="form-control" placeholder="Enter country" name="country"></input>
                                 @error('country')
-                                <div class="text-center">
-                                    {{message}}
+                                <div class="text text-danger">
+                                    {{$message}}
                                 </div>
                                 @enderror
                             </div>
@@ -99,8 +104,8 @@
                             <label for="pincode">Pincode</label>
                             <input type="text" class="form-control" placeholder="Enter pincode" name="pincode"></input>
                             @error('pincode')
-                                <div class="text-center">
-                                    {{message}}
+                                <div class="text text-danger">
+                                    {{$message}}
                                 </div>
                                 @enderror
                         </div>

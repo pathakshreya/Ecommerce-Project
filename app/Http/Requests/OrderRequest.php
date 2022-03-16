@@ -34,9 +34,9 @@ class OrderRequest extends FormRequest
             'state'=>'required',
             'country'=>'required',
             'pincode'=>'required',
-            'status'=>'required',
-            'message'=>'required',
-            'tracking_no'=>'required',
+            // 'status'=>'required',
+            // 'message'=>'required',
+            // 'tracking_no'=>'required',
         ];
     }
 }
